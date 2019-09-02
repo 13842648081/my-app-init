@@ -2,14 +2,11 @@ import { createNcpApiStore } from '@/api'
 
 const apiStore = createNcpApiStore([
   {
-    action: '_malls',
-    property: 'malls',
-    path: 'malls',
-    onSuccess (state, payload) {
-      state.malls = {
-        ...payload.data,
-        productInquiryType: payload.data.productInquiryType.filter(item => item.label === '상품')
-      }
+    action: 'getProduct',
+    property: 'products',
+    path: 'example/products',
+    onSuccess (payload) {
+     console.info(payload)
     }
   }
 ])
