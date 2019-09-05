@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+.wrapper #header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-color: #f6f6f6;
+}
