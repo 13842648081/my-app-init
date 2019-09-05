@@ -1,20 +1,19 @@
 <template>
-  <div class="main">
-    <p>商品列表</p>
-    <ul>
-      <li>name</li>
-      <li>name</li>
-      <li>name</li>
-      <li>name</li>
-      <li>name</li>
-    </ul>
+  <div>
+    <p></p>
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
 export default {
-  computed: {
-    ...mapState('product', ['product'])
+  name: 'Home',
+  props: {
+    msg: String
+  },
+  mounted () {
+    this.$store.dispath('common/getProduct').then((products) => {
+      console.info(products)
+    })
   }
 }
+//https://easy-mock.com/
 </script>
