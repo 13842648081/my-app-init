@@ -1,12 +1,12 @@
-import { createNcpApiStore } from '@/api'
+import { createApiStore } from '@/api'
 
-const apiStore = createNcpApiStore([
+const apiStore = createApiStore([
   {
     action: 'getProduct',
     property: 'products',
     path: 'example/products',
     onSuccess (payload) {
-     console.info(payload)
+      console.info(payload)
     }
   }
 ])

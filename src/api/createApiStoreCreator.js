@@ -1,10 +1,9 @@
 import Vapi from 'vuex-rest-api'
 
-export default function createApiStoreCreator (axiosInstance, isHttp) {
+export default function createApiStoreCreator (axiosInstance) {
   return function createApiStore (storeDefines) {
-    let baseURL = isHttp ? axiosInstance.defaults.baseURL : process.env.VUE_APP_NCP_API_BASE_URL_HTTPS
     const vapi = new Vapi({
-      baseURL: baseURL,
+      baseURL: axiosInstance.defaults.baseURL,
       axios: axiosInstance
     })
     storeDefines.forEach(options => {
@@ -15,7 +14,8 @@ export default function createApiStoreCreator (axiosInstance, isHttp) {
         pathParams: options.pathParams,
         cacheable: options.cacheable,
         cacheMaxAge: options.cacheMaxAge,
-        action: options.action
+        action: options.action,
+        delData: options.delData
       }
       options.queryParams = true
       vapi.add(options)

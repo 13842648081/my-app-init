@@ -13,7 +13,6 @@ router.afterEach((to, from) => {
     .catch(() => {
       store.commit('page/done')
     })
-
 })
 
 const pageStore = {

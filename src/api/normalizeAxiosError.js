@@ -6,8 +6,9 @@ export const CANCEL_ERROR = 'CANCEL_ERROR'
 export const TIMEOUT_ERROR = 'TIMEOUT_ERROR'
 export const NETWORK_ERROR = 'NETWORK_ERROR'
 export const UNKNOWN_ERROR = 'UNKNOWN_ERROR'
+export const TOKEN_ERROR = 'TOKEN_ERROR'
 
-function xhrError ({code, status = 0, data = {}}) {
+function xhrError ({ code, status = 0, data = {} }) {
   const err = new Error()
   err.name = 'XhrError'
   err.message = err.code = code
@@ -34,6 +35,13 @@ export default function normalizeAxiosError (error) {
 
   // service error, 400 401 404 500 502...
   if (error.response) {
+    if (error.response.status === 401) {
+      return xhrError({
+        code: TOKEN_ERROR,
+        status: error.response.status,
+        data: error.response.data
+      })
+    }
     if (error.response.status >= 400 && error.response.status < 500) {
       return xhrError({
         code: CLIENT_ERROR,

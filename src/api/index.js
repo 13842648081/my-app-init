@@ -1,12 +1,10 @@
 import createApiStoreCreator from './createApiStoreCreator'
-import ncpApi from './ncpApi'
+import api from './api'
 
-const createNcpApiStore = createApiStoreCreator(ncpApi, true)
-const createNcpApiStoreHttps = createApiStoreCreator(ncpApi, false)
+const createApiStore = createApiStoreCreator(api)
 
 export {
-  ncpApi as default,
-  ncpApi,
-  createNcpApiStore,
-  createNcpApiStoreHttps
+  api as default,
+  api,
+  createApiStore
 }

@@ -1,10 +1,9 @@
-import { createNcpApiStore } from '@/api'
-const apiStore = createNcpApiStore([
+import { createApiStore } from '@/api'
+const apiStore = createApiStore([
   {
     action: '_fetchProduct',
     property: 'product',
-    path: 'products/{productNo}',
-    pathParams: ['productNo'],
+    path: 'v2/5d8b0fea3500005c00d46ba6',
     method: 'get'
   }
 ])
@@ -12,12 +11,9 @@ export default {
   namespaced: true,
   mixins: [apiStore],
   actions: {
-    async  fetchProduct ({ state, dispatch }, product) {
-      state.product = null
-      const productNo = product.productNo
-      const preview = product.preview === 'true'
-      state.preview = preview
-      await dispatch('_fetchProduct', { params: { productNo, preview } })
+    async  fetchProduct ({ state, dispatch }) {
+      const productNo = 101916429
+      await dispatch('_fetchProduct', { params: { productNo } })
     }
   },
   getters: {
