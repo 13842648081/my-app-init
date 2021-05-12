@@ -19,7 +19,7 @@
     "lru-cache": "^4.1.2",
     "qs": "^6.5.1",
     "scroll-lock": "^2.1.2",
-    "swiper": "^4.5.0",
+    "swiper": "^6.5.1",
     "url-template": "^2.0.8",
     "vue": "^2.6.10",
     "vue-click-outside": "^1.0.7",
